@@ -48,14 +48,20 @@ export default async function Home() {
       </div>
 
       <div className="mt-6">
-        <h2 className="px-5 text-xs uppercase text-gray-400 font-bold mb-3 ">
-          Agendamento
-        </h2>
-        <div className="px-5 mt-6 flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-          {confirmedBookings.map((booking: { id: Key | null | undefined }) => (
-            <BookingItem key={booking.id} booking={booking} />
-          ))}
-        </div>
+        {confirmedBookings.length > 0 && (
+          <>
+            <h2 className="px-5 text-xs uppercase text-gray-400 font-bold mb-3 ">
+              Agendamento
+            </h2>
+            <div className="px-5 mt-6 flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+              {confirmedBookings.map(
+                (booking: { id: Key | null | undefined }) => (
+                  <BookingItem key={booking.id} booking={booking} />
+                )
+              )}
+            </div>
+          </>
+        )}
       </div>
 
       <div className="mt-6">
@@ -63,7 +69,7 @@ export default async function Home() {
           Recomendados
         </h2>
         <div className="flex px-5 gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-          {barbershops.map((barbershop: { id: Key | null | undefined; }) => (
+          {barbershops.map((barbershop: { id: Key | null | undefined }) => (
             <BarbershopItem key={barbershop.id} barbershop={barbershop} />
           ))}
         </div>
@@ -74,7 +80,7 @@ export default async function Home() {
           Populares
         </h2>
         <div className="flex px-5 gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-          {barbershops.map((barbershop: { id: Key | null | undefined; }) => (
+          {barbershops.map((barbershop: { id: Key | null | undefined }) => (
             <BarbershopItem key={barbershop.id} barbershop={barbershop} />
           ))}
         </div>

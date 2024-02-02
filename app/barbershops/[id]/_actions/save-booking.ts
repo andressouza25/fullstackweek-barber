@@ -2,6 +2,7 @@
 // Aqui criamos a reserva no DB
 
 import { db } from "@/app/_lib/prisma";
+import { revalidatePath } from "next/cache";
 
 interface saveBookingParams{
     barbershopId: string;
@@ -19,4 +20,7 @@ export const saveBooking =async (params:saveBookingParams) => {
             barbershopId: params.barbershopId
         }
     })
+
+    revalidatePath('/')
+    revalidatePath('/bookings');
 }
