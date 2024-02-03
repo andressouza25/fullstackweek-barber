@@ -1,9 +1,9 @@
 import { redirect } from "next/navigation";
-import BarbershopItem from "../(home)/_components/barbershop-item";
 import Header from "../_components/header";
 import { db } from "../_lib/prisma";
 import Search from "../(home)/_components/search";
 import { Key } from "react";
+import BarbershopItem from "../(home)/_components/barbershop-Item";
 
 interface BarbershopsPageProps {
   searchParams: {
